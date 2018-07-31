@@ -1,0 +1,23 @@
+type User {
+  id: ID!
+  name: String!
+}
+
+type Comment {
+  id: ID!
+  body: String!
+  userId: ID!
+}
+
+type Query {
+  user(id: ID!): User
+  users: [User!]
+  comments(userId: ID!): [Comment!]
+  comment(id: ID!): Comment
+}
+
+type Mutation {
+  createUser(name: String!): User!
+  createComments(userId: ID!, body: String!): Comment!
+  deleteUser(id: ID!): User!
+}
